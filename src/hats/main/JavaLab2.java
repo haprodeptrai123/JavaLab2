@@ -68,7 +68,6 @@ public class JavaLab2 {
                     String modelInput = new String();
                     modelInput = Validation.GetBookID("Enter BookID you want to input", "Error occured!");
                     obj.updateBook(modelInput);
-                    obj.storeBook("Book.dat");
                     break;
                 }
                 case 4: {

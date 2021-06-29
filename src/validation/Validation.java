@@ -40,8 +40,9 @@ public class Validation {
             try {
                 System.out.println(msg);
                 str = scan.nextLine();
-                if (!str.matches("[\\w]{1}[0-9]{5}")) {
+                if (!str.matches("[A-Z]{1}[0-9]{5}")) {
                     System.out.println("You must input following the format! one letter and five numbers!(Example : A01234)");
+                    throw new Exception();
                 }
                 if (str.isEmpty()) {
                     System.out.println("Empty!!!");
@@ -56,6 +57,7 @@ public class Validation {
 
     public static String getAuthor(String msg, String errorMsg) {
         String str = new String();
+        boolean a=false;
         AuthorList obj = new AuthorList();
         obj.loadAuthor("Author.dat");
         TreeSet<Author> list =new TreeSet<>();
@@ -65,16 +67,19 @@ public class Validation {
                 obj.showAll();
                 System.out.println(msg);
                 str = scan.nextLine();
-//           for(Author a: list){
-//               if(a.authorID.trim().equalsIgnoreCase(str)){
-//                   return str;
-//               }
-//           }
+        a= obj.checkAuthor(str);
+       if(a==true){
+           return str;
+       }else if(a==false){
+           System.out.println(" Author doesnt match in the list");
+           throw new Exception();
+           
+       }
                 if(str.isEmpty()){
                     System.out.println("Empty!!");
                     throw new Exception();
                 }
-                return str;
+               // return str;
             } catch (Exception e) {
                 System.out.println(errorMsg);
             }

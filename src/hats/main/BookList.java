@@ -58,6 +58,7 @@ class BookList {
                     a.update();
                     System.out.println("Successfully updated!");
                     a.showinfo();
+                    storeBook("Book.dat");
                     return;
                 }
             }

@@ -47,6 +47,14 @@ public TreeSet <Author> searchAuthor(String modelInput){
     }
         return tmpList;
 }
+public boolean checkAuthor(String modelInput){
+    for(Author a : list){
+        if(a.authorID.trim().equalsIgnoreCase(modelInput)){
+            return true;
+        }
+    }
+        return false;
+}
 public void showAll(){
         System.out.println("Author ID | Author Name ");
         for(Author a: list){

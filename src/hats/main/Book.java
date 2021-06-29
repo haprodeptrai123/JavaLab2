@@ -85,8 +85,7 @@ public abstract class Book implements Comparable<Book>, Serializable {
         return this.bookID.compareToIgnoreCase(o.bookID);
     }
 
-    void update() {
-        bookID = Validation.GetBookID("Enter Book ID with Format : (A12345)", "Wrong Format!");
+    void update() {     
         isbn = Validation.GetIsbn("Enter ISBN(13 numbers): ", "Wrong Format!");
         title = Validation.getTitle("Enter title:", "Wrong format!!!");
         price = Validation.getPrice("Enter price:", "You must enter a number", 0, 300000000);
